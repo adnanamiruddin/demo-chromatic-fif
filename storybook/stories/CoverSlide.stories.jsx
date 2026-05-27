@@ -26,3 +26,18 @@ export const ShortAgenda = {
     agenda: sampleAgenda.slice(0, 3)
   }
 };
+
+export const RegressionDemo = {
+  name: 'Regression Demo (Training)',
+  args: {
+    regressionDemoSeed: 42
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Intentional visual-diff scenario for Chromatic training. This story forces regression styling via `regressionDemoSeed`.'
+      }
+    }
+  }
+};

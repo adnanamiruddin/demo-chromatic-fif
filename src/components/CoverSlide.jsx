@@ -1,8 +1,33 @@
 import PropTypes from 'prop-types';
 
-export function CoverSlide({ dayLabel, titleMain, titleAccent, subtitle, duration, sessions, level, agenda }) {
+export function CoverSlide({
+  dayLabel,
+  titleMain,
+  titleAccent,
+  subtitle,
+  duration,
+  sessions,
+  level,
+  agenda,
+  regressionDemoSeed
+}) {
+  const errorDemoSeedFromEnv = import.meta.env.VITE_CHROMATIC_ERROR_DEMO_SEED;
+  const errorDemoSeed = regressionDemoSeed ?? errorDemoSeedFromEnv;
+  const isChromaticErrorDemo = errorDemoSeed !== undefined && errorDemoSeed !== null && errorDemoSeed !== '';
+  const chromaticDemoHue = isChromaticErrorDemo ? Number(errorDemoSeed) % 360 : null;
+
   return (
-    <section className="cover-slide" aria-label="Workshop cover slide">
+    <section
+      className={`cover-slide ${isChromaticErrorDemo ? 'cover-slide-regression-demo' : ''}`.trim()}
+      aria-label="Workshop cover slide"
+      style={
+        chromaticDemoHue !== null
+          ? {
+              '--chromatic-demo-hue': `${chromaticDemoHue}`
+            }
+          : undefined
+      }
+    >
       <div className="cover-left">
         <span className="cover-tag">{dayLabel}</span>
         <h1 className="cover-title">
@@ -58,5 +83,6 @@ CoverSlide.propTypes = {
       title: PropTypes.string.isRequired,
       detail: PropTypes.string.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  regressionDemoSeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

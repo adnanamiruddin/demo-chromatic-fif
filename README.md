@@ -85,6 +85,18 @@ npm run build
 npm run chromatic
 ```
 
+Strict mode (fails the command when visual diffs are found):
+
+```bash
+npm run chromatic:strict
+```
+
+Intentional error demo (forces a design change and expects Chromatic failure in strict mode):
+
+```bash
+npm run chromatic:error-demo
+```
+
 Required environment variable:
 
 - `CHROMATIC_PROJECT_TOKEN`
@@ -162,6 +174,16 @@ This project integration is split into dedicated folders:
    - Uses `CHROMATIC_PROJECT_TOKEN` from repo secrets.
 
 This setup keeps component documentation and visual testing organized and separated, while still tightly connected.
+
+## Example: Chromatic responds with an error on design change
+
+This repository includes a built-in demo to simulate a design regression:
+
+- `CoverSlide` checks `VITE_CHROMATIC_ERROR_DEMO_SEED`.
+- When set, it applies `.cover-slide-regression-demo` styles that intentionally alter the UI with a seed-based hue.
+- `npm run chromatic:error-demo` generates a new seed every run and executes strict Chromatic config, so detected visual diffs cause a failed command.
+
+Detailed steps: `visual-regression/chromatic/examples/error-demo.md`.
 
 ## Next practical improvements (optional)
 

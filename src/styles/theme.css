@@ -31,6 +31,19 @@ body {
   background: linear-gradient(135deg, #0d1b2a 0%, #12294a 60%, #1a3a5c 100%);
 }
 
+.cover-slide-regression-demo {
+  border-top: 10px solid hsl(var(--chromatic-demo-hue, 340) 95% 65%);
+}
+
+.cover-slide-regression-demo .cover-title span {
+  color: hsl(var(--chromatic-demo-hue, 340) 95% 65%);
+  text-shadow: 0 0 18px hsl(var(--chromatic-demo-hue, 340) 95% 65% / 0.35);
+}
+
+.cover-slide-regression-demo .cover-right {
+  border-left: 4px dashed hsl(var(--chromatic-demo-hue, 340) 95% 65%);
+}
+
 .cover-left {
   padding: 72px 56px;
   border-right: 1px solid var(--border);
