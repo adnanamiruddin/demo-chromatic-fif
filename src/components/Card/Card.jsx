@@ -15,7 +15,7 @@ export default function Card({
         borderRadius,
       }}
     >
-      <h2>{title}</h2>
+      <h2>Title: {title}</h2>
 
       {subtitle && <p>{subtitle}</p>}
 
