@@ -1,0 +1,33 @@
+.sidebar-button {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  cursor: pointer;
+
+  padding: 16px 18px;
+
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.sidebar-button:hover {
+  transform: translateX(4px);
+
+  filter: brightness(1.08);
+}
+
+.sidebar-button.active {
+  box-shadow: 0 8px 20px rgba(41, 82, 255, 0.28);
+}
