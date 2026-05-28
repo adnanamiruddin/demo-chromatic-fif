@@ -17,7 +17,7 @@ export default function Card({
     >
       <h2>Title: {title}</h2>
 
-      {subtitle && <p>{subtitle}</p>}
+      {subtitle && <p>Description: {subtitle}</p>}
 
       <div className="card-content">{children}</div>
     </div>
